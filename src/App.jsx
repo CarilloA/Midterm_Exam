@@ -8,7 +8,6 @@ import About from './About';
 import Contact from './Contact';
 import PageNotFound from './PageNotFound';
 import Footer from './Footer';
-import BakeLogo from './assets/bakeLogo.png';
 import OrderNow from './OrderNow.jsx';
 import Cart from './Cart.jsx';
 import Checkout from './Checkout';
@@ -30,7 +29,7 @@ function App() {
       const storedCart = localStorage.getItem('cart');
       if (storedCart) {
         const cartItems = JSON.parse(storedCart);
-        const itemCount = cartItems .reduce((total, item) => total + item.quantity, 0);
+        const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
         setCartItemCount(itemCount);
       }
     };
@@ -47,8 +46,8 @@ function App() {
     <BrowserRouter>
       <header className="main-header">
         <div className="header-content">
-          <NavLink to="/" className="logo-link">
-            MobileSphere
+          <NavLink to="/" onClick={toggleMenu} className="logo-link">
+            <span className="logo-text">MobileSphere</span>
           </NavLink>
           <button className="hamburger-menu" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faBars} />
@@ -56,24 +55,16 @@ function App() {
           <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
             <ul>
               <li>
-                <NavLink to="/" onClick={toggleMenu}>
-                  Home
-                </NavLink>
+                <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
               </li>
               <li>
-                <NavLink to="/menu" onClick={toggleMenu}>
-                  Menu
-                </NavLink>
+                <NavLink to="/menu" onClick={toggleMenu}>Menu</NavLink>
               </li>
               <li>
-                <NavLink to="/about" onClick={toggleMenu}>
-                  About Us
-                </NavLink>
+                <NavLink to="/about" onClick={toggleMenu}>About Us</NavLink>
               </li>
               <li>
-                <NavLink to="/contact" onClick={toggleMenu}>
-                  Contact Us
-                </NavLink>
+                <NavLink to="/contact" onClick={toggleMenu}>Contact Us</NavLink>
               </li>
               <li>
                 <NavLink to="/shop" onClick={toggleMenu} className="shop-now-link">
@@ -91,19 +82,19 @@ function App() {
         </div>
       </header>
       <main>
-      <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/menu" element={<Menu />} />
-  <Route path="/shop" element={<Shop />} />
-  <Route path="/about" element={<About />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/order/:productId" element={<OrderNow />} />
-  <Route path="/product/:productId" element={<ProductDescription />} />
-  <Route path="/cart" element={<Cart />} />
-  <Route path="/checkout" element={<Checkout />} />
-  <Route path="/confirmation" element={<Confirmation />} />
-  <Route path="*" element={<PageNotFound />} />
-</Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/order/:productId" element={<OrderNow />} />
+          <Route path="/product/:productId" element={<ProductDescription />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </main>
       <Footer />
     </BrowserRouter>

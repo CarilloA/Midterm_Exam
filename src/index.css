@@ -50,12 +50,31 @@ h1, h2, h3 {
 
 .logo {
   height: 60px; /* Increase logo size */
-  flex: 0 0 60px; /* Set fixed width for logo */
 }
 
 .logo-link {
   margin-left: 0;
 }
+
+.logo-link {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  text-decoration: none; /* Remove underline from the link */
+  color: #FFF; /* Set text color */
+  font-size: 1.5rem; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logo-link:hover {
+  color: var(--accent-color); /* Change color on hover */
+}
+
+.logo-text {
+  margin-left: 0.5rem; /* Space between logo and text */
+  /* Add any additional styles for the text */
+}
+
 
 .hamburger-menu {
   display: none; /* Hide hamburger menu on larger screens */
@@ -67,10 +86,9 @@ h1, h2, h3 {
   margin-left: auto; /* Align hamburger menu to the right */
 }
 
-.nav-links {
-  display: flex;
-  justify-content: flex-end; /* Align nav links to the end */
-  align-items: center;
+.nav-links a {
+  padding: 0.5rem 1rem; /* Add padding for a better clickable area */
+  border-radius: 0.25rem; /* Rounded corners for links */
 }
 
 .nav-links ul {
@@ -207,7 +225,6 @@ h1, h2, h3 {
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  width: 30%;
 }
 
 .product-card:hover {
@@ -343,7 +360,7 @@ footer {
 
 .menu h1 {
   font-size: 2.5rem;
-  color: #ff6f00;
+  color: #05a2ad;
   margin-bottom: 40px;
 }
 
@@ -354,7 +371,7 @@ footer {
 .menu-categories button {
   padding: 10px 20px;
   border: none;
-  background-color: #ff6f00;
+  background-color: #1bacb6;
   color: white;
   border-radius: 20px;
   margin: 0 10px;
@@ -364,7 +381,8 @@ footer {
 
 .menu-categories button.active,
 .menu-categories button:hover {
-  background-color: #e65a00;
+  background-color: #62f3f3;
+  color: black;
 }
 
 .menu-grid {
@@ -618,7 +636,7 @@ textarea {
 .about {
   padding: 3rem 2rem;
   background-color: var(--background-color);
-  font-family: 'Poppins', sans-serif; /* A modern font choice */
+  font-family: 'Poppins', sans-serif;
   color: var(--text-color);
 }
 
@@ -629,11 +647,12 @@ textarea {
   margin-bottom: 3rem;
 }
 
-.about-hero h1 {
+.hero-title {
   color: var(--primary-color);
   font-size: 3rem;
   font-weight: bold;
   margin: 2rem 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .parallax-container {
@@ -655,9 +674,10 @@ textarea {
 }
 
 .about-image:hover {
-  transform: translate(-50%, -50%) scale(1.05); /* Slight zoom on hover */
+  transform: translate(-50%, -50%) scale(1.05);
   filter: brightness(1);
 }
+
 
 /* About Content Section */
 .about-content {
@@ -669,11 +689,13 @@ textarea {
   margin: 0 auto;
 }
 
-.about-content h2 {
+.content-title {
   color: var(--primary-color);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
 }
 
 .about-content p {
@@ -686,15 +708,22 @@ textarea {
 .testimonials {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: var(--background-light); /* A light, pleasant background */
+  background-color: var(--background-light);
   color: var(--text-color);
 }
 
-.testimonials h2 {
+.testimonial-title {
   font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 2rem;
   font-weight: bold;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
 }
 
 .testimonial {
@@ -702,12 +731,11 @@ textarea {
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  margin: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial:hover {
-  transform: translateY(-10px); /* Subtle float effect */
+  transform: translateY(-10px);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -728,19 +756,18 @@ textarea {
     padding: 2rem 1rem;
   }
 
-  .about-hero h1 {
+  .hero-title {
     font-size: 2.5rem;
   }
 
-  .about-content h2 {
+  .content-title {
     font-size: 2rem;
   }
 
-  .testimonials h2 {
+  .testimonial-title {
     font-size: 2rem;
   }
 }
-
 
 /* PageNotFound.css */
 .page-not-found {

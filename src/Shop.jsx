@@ -13,7 +13,7 @@ function Shop() {
   const [sortBy, setSortBy] = useState('name');
   const [category, setCategory] = useState('All');
 
-  // Simulated product data (in a real app, this would come from an API or database)
+  // Simulated product data
   const productData = [
     { id: 1, name: "Smartphone", price: 699.99, category: "Mobile", image: smartphone },
     { id: 2, name: "Tablet", price: 399.99, category: "Mobile", image: tablet },
@@ -28,25 +28,18 @@ function Shop() {
   }, []);
 
   const handleSort = (e) => {
-    setSortBy(e.target.value);
+    const sortValue = e.target.value;
     const sortedProducts = [...products].sort((a, b) => {
-      if (e.target.value === 'price') {
-        return a.price - b.price;
-      } else {
-        return a.name.localeCompare(b.name);
-      }
+      return sortValue === 'price' ? a.price - b.price : a.name.localeCompare(b.name);
     });
     setProducts(sortedProducts);
+    setSortBy(sortValue);
   };
 
   const handleCategoryFilter = (e) => {
-    setCategory(e.target.value);
-    if (e.target.value === 'All') {
-      setProducts(productData);
-    } else {
-      const filteredProducts = productData.filter(product => product.category === e.target.value);
-      setProducts(filteredProducts);
-    }
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory);
+    setProducts(selectedCategory === 'All' ? productData : productData.filter(product => product.category === selectedCategory));
   };
 
   return (
@@ -67,13 +60,13 @@ function Shop() {
         </select>
       </div>
       <div className="product-grid">
-        {products.map((product) => (
+        {products.map(product => (
           <ProductCard
             key={product.id}
             id={product.id}
             image={product.image}
             name={product.name}
-            description={`Price: $${product.price}`} // Description can be adjusted as needed
+            description={`Price: $${product.price}`} // Adjust as needed
             price={product.price}
           />
         ))}

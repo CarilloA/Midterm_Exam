@@ -1,57 +1,96 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import smartphone from './assets/smartphone.png';
+import tablet from './assets/tablet.png';
+import smartwatch from './assets/smartwatch.png';
+import earphones from './assets/wirelessEarphone.png';
+import laptop from './assets/laptop.png';
+import charger from './assets/charger.png';
 
 function ProductDescription() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
-  // Simulated product data (in a real app, this would come from an API or database)
+  // Simulated mobile product data with imported images
   const productData = {
     1: {
       id: 1,
-      name: "Butter Croissant",
-      price: 2.50,
-      category: "Bread",
-      description: "Flaky, buttery, and simply delicious",
-      longDescription: "Our butter croissants are made with the finest French butter, creating layers of flaky, buttery goodness that melts in your mouth. Each croissant is hand-rolled and baked to perfection, resulting in a golden-brown exterior and a soft, airy interior.",
+      name: "Smartphone XYZ",
+      price: 699.99,
+      category: "Mobile",
+      description: "The ultimate smartphone experience.",
+      longDescription: "The Smartphone XYZ combines cutting-edge technology with a sleek design, featuring a stunning display and exceptional camera.",
+      image: smartphone,
     },
     2: {
       id: 2,
-      name: "Sourdough Bread",
-      price: 6.00,
-      category: "Bread",
-      description: "Made with our 100-year-old starter",
-      longDescription: "Our sourdough bread is crafted using a century-old starter, giving it a unique tangy flavor and chewy texture. Each loaf is hand-shaped and slowly fermented for 24 hours, resulting in a crusty exterior and a moist, open crumb structure.",
+      name: "Tablet Pro",
+      price: 399.99,
+      category: "Mobile",
+      description: "Versatile and powerful.",
+      longDescription: "The Tablet Pro offers a vibrant display, perfect for work and play.",
+      image: tablet,
     },
     3: {
       id: 3,
-      name: "Chocolate Cake",
-      price: 28.00,
-      category: "Cake",
-      description: "Rich, moist, and utterly indulgent",
-      longDescription: "Our chocolate cake is a chocoholic's dream come true. Made with premium dark chocolate and cocoa powder, this cake is incredibly moist and rich. It's layered with silky chocolate ganache and covered in a smooth chocolate buttercream frosting.",
+      name: "Smartwatch Plus",
+      price: 199.99,
+      category: "Wearables",
+      description: "Stay connected on your wrist.",
+      longDescription: "The Smartwatch Plus keeps you in touch with notifications and fitness tracking.",
+      image: smartwatch,
+    },
+    4: {
+      id: 4,
+      name: "Wireless Earphones",
+      price: 149.99,
+      category: "Audio",
+      description: "Experience true wireless freedom.",
+      longDescription: "Our Wireless Earphones offer crystal-clear sound quality with the convenience of Bluetooth connectivity.",
+      image: earphones,
+    },
+    5: {
+      id: 5,
+      name: "Laptop Ultra",
+      price: 999.99,
+      category: "Computers",
+      description: "Powerful performance on the go.",
+      longDescription: "The Laptop Ultra features a sleek design with powerful internals, perfect for work or play.",
+      image: laptop,
+    },
+    6: {
+      id: 6,
+      name: "Portable Charger",
+      price: 49.99,
+      category: "Accessories",
+      description: "Keep your devices charged anywhere.",
+      longDescription: "The Portable Charger is compact and powerful, ensuring your devices stay charged on the go.",
+      image: charger,
     },
   };
 
   useEffect(() => {
-    const fetchedProduct = productData[productId];
+    const fetchedProduct = productData[parseInt(productId, 10)];
     if (fetchedProduct) {
       setProduct(fetchedProduct);
+    } else {
+      navigate('/404'); // Redirect to a 404 page if product not found
     }
-  }, [productId]);
+  }, [productId, navigate]);
 
   if (!product) return <div className="loading">Loading...</div>;
 
   return (
     <div className="product-description">
+      <img src={product.image} alt={product.name} className="product-image" />
       <h1>{product.name}</h1>
       <p className="category">{product.category}</p>
       <p className="price">${product.price.toFixed(2)}</p>
       <p className="description">{product.description}</p>
       <p className="long-description">{product.longDescription}</p>
       <Link to={`/order/${product.id}`} className="order-now-button">Order Now</Link>
-      <button className="back-button" onClick={() => navigate(-1)}>Back</button> {/* Back button */}
+      <button className="back-button" onClick={() => navigate(-1)}>Back</button>
     </div>
   );
 }

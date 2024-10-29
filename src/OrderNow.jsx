@@ -13,14 +13,12 @@ function OrderNow() {
 
   // Full product data
   const productData = {
-    1: { id: 1, name: "Butter Croissant", price: 2.50, category: "Bread", description: "Flaky, buttery, and simply delicious" },
-    2: { id: 2, name: "Sourdough Bread", price: 6.00, category: "Bread", description: "Made with our 100-year-old starter" },
-    3: { id: 3, name: "Chocolate Cake", price: 28.00, category: "Cake", description: "Rich, moist, and utterly indulgent" },
-    4: { id: 4, name: "Blueberry Muffin", price: 3.00, category: "Cake", description: "Fresh blueberries with a hint of vanilla" },
-    5: { id: 5, name: "Cappuccino", price: 3.50, category: "Hot Drinks", description: "Hot espresso with steamed milk" },
-    6: { id: 6, name: "Espresso", price: 2.50, category: "Hot Drinks", description: "Strong and bold single-shot espresso" },
-    7: { id: 7, name: "Iced Coffee", price: 4.00, category: "Cold Drinks", description: "Chilled coffee with milk and ice" },
-    8: { id: 8, name: "Iced Espresso", price: 4.00, category: "Cold Drinks", description: "Chilled coffee with milk and ice" }
+    1: { id: 1, name: "Smartphone", price: 699.99, category: "Mobile", description: "Latest smartphone with advanced features" },
+    2: { id: 2, name: "Tablet", price: 399.99, category: "Mobile", description: "Portable tablet with high performance" },
+    3: { id: 3, name: "Smartwatch", price: 199.99, category: "Wearables", description: "Stylish smartwatch with health tracking" },
+    4: { id: 4, name: "Wireless Earphones", price: 149.99, category: "Audio", description: "Bluetooth earphones with great sound" },
+    5: { id: 5, name: "Laptop", price: 999.99, category: "Computers", description: "Powerful laptop for work and play" },
+    6: { id: 6, name: "Portable Charger", price: 49.99, category: "Accessories", description: "High-capacity portable charger" },
   };
 
   useEffect(() => {

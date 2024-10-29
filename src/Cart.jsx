@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faShoppingCart, 
-  faTrash, 
-  faMinus, 
-  faPlus, 
-  faArrowRight,
-  faShoppingBag
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faTrash, faMinus, faPlus, faArrowRight, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
@@ -28,7 +21,6 @@ function Cart() {
   const updateCart = (newCart) => {
     setCartItems(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
-    window.dispatchEvent(new Event('storage'));
   };
 
   const increaseQuantity = (index) => {

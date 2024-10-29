@@ -16,7 +16,7 @@ function Home() {
       price: 49.99,
     },
     {
-      id: 2,
+      id: 1,
       image: smartphone,
       name: "Smart Phone",
       description: "Stay connected with the latest technology.",

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCreditCard, faUser, faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard, faUser, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 function Checkout() {
   const navigate = useNavigate();
@@ -25,10 +26,53 @@ function Checkout() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your payment processing logic here
-    navigate('/confirmation');
+
+    const payload = { //4b542c88-6bc7-482f-ace9-5ba13dbcc74e 2aef2153-bde5-4a37-bdc3-d88a10cdb9d8
+      access_key: '4b542c88-6bc7-482f-ace9-5ba13dbcc74e', // Replace with your access key
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address,
+      cartItems: JSON.stringify(cartItems), // Convert cart items to a string
+      totalPrice,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        Swal.fire({
+          title: "Message Sent!",
+          text: "Your order has been submitted successfully!",
+          icon: "success",
+        });
+        navigate('/confirmation'); // Redirect to confirmation page
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Something went wrong. Please try again.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error('Error sending checkout details:', error);
+      Swal.fire({
+        title: "Error",
+        text: "Network error. Please try again later.",
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -52,7 +96,7 @@ function Checkout() {
 
         <form className="checkout-form" onSubmit={handleSubmit}>
           <h2>Payment Details</h2>
-          
+
           <div className="form-section">
             <h3><FontAwesomeIcon icon={faUser} /> Personal Information</h3>
             <div className="form-group">

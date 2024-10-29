@@ -1,37 +1,32 @@
 import React, { useState } from 'react';
 import ProductCard from './ProductCard'; // Import the ProductCard component
-import croissant from './assets/croissant.jpg';
-import sourdough from './assets/sourdough.jpg';
-import chocolateCake from './assets/chocolate-cake.jpg';
-import blueberryMuffin from './assets/muffin.jpg';
-import hotSec from './assets/hotSec.png';
-import coldSec from './assets/coldSec.png';
-import espresso from './assets/Espresso.jpg';  // Importing the Espresso image
+import smartphone from './assets/smartphone.png';
+import tablet from './assets/tablet.png';
+import smartwatch from './assets/smartwatch.png';
+import earphones from './assets/earphones.png';
+import laptop from './assets/laptop.png';
+import charger from './assets/charger.png';
 
 function Menu() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const menuItems = {
-    1: { id: 1, name: "Butter Croissant", price: 2.50, category: "Bread", description: "Flaky, buttery, and simply delicious", image: croissant },
-    2: { id: 2, name: "Sourdough Bread", price: 6.00, category: "Bread", description: "Made with our 100-year-old starter", image: sourdough },
-    3: { id: 3, name: "Chocolate Cake", price: 28.00, category: "Cake", description: "Rich, moist, and utterly indulgent", image: chocolateCake },
-    4: { id: 4, name: "Blueberry Muffin", price: 3.00, category: "Cake", description: "Fresh blueberries with a hint of vanilla", image: blueberryMuffin },
-    5: { id: 5, name: "Cappuccino", price: 3.50, category: "Hot Drinks", description: "Hot espresso with steamed milk", image: hotSec },
-    6: { id: 6, name: "Espresso", price: 2.50, category: "Hot Drinks", description: "Strong and bold single-shot espresso", image: espresso },
-    7: { id: 7, name: "Iced Coffee", price: 4.00, category: "Cold Drinks", description: "Chilled coffee with milk and ice", image: coldSec },
-    8: { id: 8, name: "Iced Espresso", price: 4.00, category: "Cold Drinks", description: "Chilled coffee with milk and ice", image: espresso }
+    1: { id: 1, name: "Smartphone XYZ", price: 699.99, category: "Mobile", description: "The ultimate smartphone experience", image: smartphone },
+    2: { id: 2, name: "Tablet Pro", price: 399.99, category: "Mobile", description: "Versatile and powerful tablet", image: tablet },
+    3: { id: 3, name: "Smartwatch Plus", price: 199.99, category: "Wearables", description: "Stay connected on your wrist", image: smartwatch },
+    4: { id: 4, name: "Wireless Earphones", price: 149.99, category: "Audio", description: "Experience true wireless freedom", image: earphones },
+    5: { id: 5, name: "Laptop Ultra", price: 999.99, category: "Computers", description: "Powerful performance on the go", image: laptop },
+    6: { id: 6, name: "Portable Charger", price: 49.99, category: "Accessories", description: "Keep your devices charged anywhere", image: charger },
   };
- 
 
   const filteredItems = selectedCategory === 'All'
-  ? Object.values(menuItems) // Convert the object to an array
-  : Object.values(menuItems).filter(item => item.category === selectedCategory);
-
+    ? Object.values(menuItems) // Convert the object to an array
+    : Object.values(menuItems).filter(item => item.category === selectedCategory);
 
   return (
     <div className="menu">
-      <h1>Our Menu</h1>
-     
+      <h1>MobileSphere Menu</h1>
+      
       {/* Category Selector */}
       <div className="menu-categories">
         <button
@@ -41,28 +36,34 @@ function Menu() {
           All
         </button>
         <button
-          className={selectedCategory === 'Bread' ? 'active' : ''}
-          onClick={() => setSelectedCategory('Bread')}
+          className={selectedCategory === 'Mobile' ? 'active' : ''}
+          onClick={() => setSelectedCategory('Mobile')}
         >
-          Bread
+          Mobile
         </button>
         <button
-          className={selectedCategory === 'Cake' ? 'active' : ''}
-          onClick={() => setSelectedCategory('Cake')}
+          className={selectedCategory === 'Wearables' ? 'active' : ''}
+          onClick={() => setSelectedCategory('Wearables')}
         >
-          Cake
+          Wearables
         </button>
         <button
-          className={selectedCategory === 'Hot Drinks' ? 'active' : ''}
-          onClick={() => setSelectedCategory('Hot Drinks')}
+          className={selectedCategory === 'Audio' ? 'active' : ''}
+          onClick={() => setSelectedCategory('Audio')}
         >
-          Hot Drinks
+          Audio
         </button>
         <button
-          className={selectedCategory === 'Cold Drinks' ? 'active' : ''}
-          onClick={() => setSelectedCategory('Cold Drinks')}
+          className={selectedCategory === 'Computers' ? 'active' : ''}
+          onClick={() => setSelectedCategory('Computers')}
         >
-          Cold Drinks
+          Computers
+        </button>
+        <button
+          className={selectedCategory === 'Accessories' ? 'active' : ''}
+          onClick={() => setSelectedCategory('Accessories')}
+        >
+          Accessories
         </button>
       </div>
 

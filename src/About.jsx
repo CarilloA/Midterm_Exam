@@ -1,42 +1,43 @@
-import React from 'react';
-import cakeSec from './assets/chocolate-cake.jpg';
+import React from 'react'; 
+import gadget from './assets/gadget.png'; // Consider replacing with a relevant mobile-themed image
 
 function About() {
   return (
     <div className="about">
       {/* Hero Section */}
       <section className="about-hero">
-        <h1>About Sweet Bakery</h1>
+        <h1 className="hero-title">About MobileSphere</h1>
         <div className="parallax-container">
-          <img src={cakeSec} alt="Our Bakery" className="about-image parallax" />
+          <img src={gadget} alt="Our Bakery" className="about-image parallax" />
         </div>
       </section>
 
       {/* About Content Section */}
       <section className="about-content">
-        <h2>Our Story</h2>
+        <h2 className="content-title">Our Story</h2>
         <p>
-          At Sweet Bakery, we bring the finest baked goods to our customers, using only the freshest ingredients.
-          Our journey began in 2005 with a passion for creating mouth-watering pastries, cakes, and breads that
-          leave a lasting impression. Over the years, we have grown into a beloved local bakery with a loyal
-          following.
+          At MobileSphere, we are dedicated to bringing you the latest in mobile technology and accessories.
+          Our journey began with a passion for innovation and quality products that enhance your daily life.
+          Over the years, we have grown into a trusted source for tech enthusiasts and casual users alike.
         </p>
         <p>
-          From classic favorites like croissants and sourdough to custom-designed cakes for special occasions,
-          we pride ourselves on delivering the best flavors and textures with every bite.
+          From the newest smartphones to essential accessories, we pride ourselves on offering a curated selection
+          that meets the needs of every customer, ensuring the best user experience.
         </p>
       </section>
 
       {/* Testimonials Section */}
       <section className="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div className="testimonial">
-          <p>"The best cakes in town! Always fresh and delicious."</p>
-          <p>- Hindi ko Alam</p>
-        </div>
-        <div className="testimonial">
-          <p>"I can't start my day without their amazing coffee and croissants!"</p>
-          <p>- Binenta Lang Ako</p>
+        <h2 className="testimonial-title">What Our Customers Say</h2>
+        <div className="testimonial-grid">
+          <div className="testimonial">
+            <p>"MobileSphere has the best selection of gadgets! Always on trend!"</p>
+            <p>- Tech Enthusiast</p>
+          </div>
+          <div className="testimonial">
+            <p>"Their customer service is unmatched! I found exactly what I needed."</p>
+            <p>- Satisfied Customer</p>
+          </div>
         </div>
       </section>
     </div>

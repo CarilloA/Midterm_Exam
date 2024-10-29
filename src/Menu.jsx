@@ -25,7 +25,7 @@ function Menu() {
 
   return (
     <div className="menu">
-      <h1>MobileSphere Menu</h1>
+      <h1>Mobiles</h1>
       
       {/* Category Selector */}
       <div className="menu-categories">

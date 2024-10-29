@@ -29,23 +29,18 @@ h1, h2, h3 {
 
 /* Header Styles */
 .main-header {
-  background-color: var(--primary-color);
-  padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between; /* Space between logo and nav links */
-  align-items: center;
-  position: relative;
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center; /* Vertically center items */
+  padding: 1rem;
+  background-color: var(--primary-color);
 }
 
 .header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
   display: flex;
-  justify-content: space-between; /* Space between logo and nav links */
+  justify-content: space-between; /* Adjust as needed */
   align-items: center;
-  width: 100%;
+  width: 100%; /* Ensures it takes the full width */
 }
 
 .logo {
@@ -86,17 +81,22 @@ h1, h2, h3 {
   margin-left: auto; /* Align hamburger menu to the right */
 }
 
+.nav-links {
+  display: flex;
+  justify-content: flex-start; /* Aligns items to the left */
+  padding: 0;
+  list-style: none;
+}
+
 .nav-links a {
   padding: 0.5rem 1rem; /* Add padding for a better clickable area */
   border-radius: 0.25rem; /* Rounded corners for links */
 }
 
 .nav-links ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
+  display: flex; /* Use flexbox for layout */
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 

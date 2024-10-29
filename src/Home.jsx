@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import heroImage from './assets/backgroundImg.png';
 import gadgetImage from './assets/smartGadget.png';
 import smartphone from './assets/smartphone.png';
+import smartwatch from './assets/smartwatch.png';
+import tablet from './assets/tablet.png';
 import cooler from './assets/cooler.png';
 import ProductCard from './ProductCard';
 
 function Home() {
   const featuredProducts = [
     {
-      id: 1,
-      image: gadgetImage,
-      name: "Smart Gadget",
-      description: "Innovative tech for everyday convenience.",
-      price: 49.99,
+      id: 2,
+      image: tablet,
+      name: "Tablet Pro",
+      description: "The Tablet Pro offers a vibrant display, perfect for work and play.",
+      price: 399.99,
     },
     {
       id: 1,
@@ -24,10 +26,10 @@ function Home() {
     },
     {
       id: 3,
-      image: cooler,
-      name: "Mobile Phone Cooler",
-      description: "Keep your device cool during intensive use.",
-      price: 29.99,
+      image: smartwatch,
+      name: "Smartwatch Plus",
+      description: "The Smartwatch Plus keeps you in touch with notifications and fitness tracking.",
+      price: 199.99,
     },
   ];
 

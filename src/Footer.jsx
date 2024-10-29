@@ -4,27 +4,27 @@ import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>123 Bakery Street, Sweetville, CA 90210</p>
-          <p>Phone: (555) 123-4567</p>
-          <p>Email: info@sweetbakery.com</p>
+          <p>456 Tech Lane, Silicon Valley, CA 94043</p>
+          <p>Phone: (555) 987-6543</p>
+          <p>Email: support@mobilesphere.com</p>
         </div>
         <div className="footer-section">
-          <h3>Opening Hours</h3>
-          <p>Monday - Friday: 7am - 7pm</p>
-          <p>Saturday: 8am - 6pm</p>
-          <p>Sunday: 8am - 3pm</p>
+          <h3>Customer Service</h3>
+          <p>Monday - Friday: 9am - 6pm</p>
+          <p>Saturday: 10am - 4pm</p>
+          <p>Sunday: Closed</p>
         </div>
         <div className="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/shop">Shop</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            {/* <li><Link to="/support">Support</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li> */}
           </ul>
         </div>
         <div className="footer-section">
@@ -37,7 +37,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Sweet Bakery. All rights reserved.</p>
+        <p>&copy; 2024 MobileSphere. All rights reserved.</p>
       </div>
     </footer>
   );

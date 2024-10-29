@@ -30,7 +30,7 @@ function Checkout() {
     e.preventDefault();
 
     const payload = { //4b542c88-6bc7-482f-ace9-5ba13dbcc74e 2aef2153-bde5-4a37-bdc3-d88a10cdb9d8
-      access_key: '4b542c88-6bc7-482f-ace9-5ba13dbcc74e', // Replace with your access key
+      access_key: '2aef2153-bde5-4a37-bdc3-d88a10cdb9d8', // Replace with your access key
       name: formData.name,
       email: formData.email,
       phone: formData.phone,

@@ -53,7 +53,7 @@ function OrderNow() {
     setOrderPlaced(true);
     setTimeout(() => {
       setOrderPlaced(false);
-      navigate('/');
+      navigate('/checkout');
     }, 3000);
   };
 
@@ -87,7 +87,7 @@ function OrderNow() {
       {orderPlaced && (
         <div className="order-confirmation">
           <p>You've ordered {quantity} {product.name}(s)!</p>
-          <p>Redirecting to home page...</p>
+          <p>Redirecting to checkout page...</p>
         </div>
       )}
     </div>
